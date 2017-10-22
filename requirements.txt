@@ -35,5 +35,3 @@ sympy==1.0
 Unidecode==0.4.20
 virtualenv==15.1.0
 Werkzeug==0.12.1
-xattr==0.6.4
-zope.interface==4.1.1
