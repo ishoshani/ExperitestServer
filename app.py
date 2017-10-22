@@ -14,6 +14,6 @@ def hello_time():
     os.environ["TZ"]=zone
     time.tzset()
     nowtime = datetime.now().time();
-    f = urllib2.urlopen("http://api.fixer.io/latest?base=USD&symbols=ILS")
+    f = urllib3.urlopen("http://api.fixer.io/latest?base=USD&symbols=ILS")
     js = json.loads(f.read())
     return render_template("stats.html",nowtime=nowtime.strftime("%H:%M:%S %Z"),nowExchange = js["rates"]["ILS"])
