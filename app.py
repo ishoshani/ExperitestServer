@@ -4,7 +4,7 @@ from flask import render_template
 from datetime import datetime
 import os
 import time
-import urllib2
+import urllib3
 import json
 app = Flask(__name__)
 
