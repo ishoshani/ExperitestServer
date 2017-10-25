@@ -11,6 +11,7 @@ app = Flask(__name__)
 @app.route('/',methods = ['GET'])
 def hello_time():
     zone = request.args.get('tz',default = "America/Los_Angeles")
+    fontsize = request.args.get('size', default = "16px")
     os.environ["TZ"]=zone
     time.tzset()
     nowtime = datetime.now().time();
@@ -18,4 +19,4 @@ def hello_time():
     js = json.loads(f.read())
     shekelsToDollar = js["rates"]["ILS"]
     DollarToShekel = 1.00/shekelsToDollar
-    return render_template("stats.html",nowtime=nowtime.strftime("%H:%M:%S %Z"),nowExchange = DollarToShekel)
+    return render_template("stats.html",reqFont = fontsize,nowtime=nowtime.strftime("%H:%M:%S %Z"),nowExchange = DollarToShekel)
