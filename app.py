@@ -16,4 +16,6 @@ def hello_time():
     nowtime = datetime.now().time();
     f = urllib.urlopen("http://api.fixer.io/latest?base=USD&symbols=ILS")
     js = json.loads(f.read())
-    return render_template("stats.html",nowtime=nowtime.strftime("%H:%M:%S %Z"),nowExchange = js["rates"]["ILS"])
+    shekelsToDollar = js["rates"]["ILS"]
+    DollarToShekel = 1.00/shekelsToDollar
+    return render_template("stats.html",nowtime=nowtime.strftime("%H:%M:%S %Z"),nowExchange = DollarToShekel)
